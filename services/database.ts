@@ -17,6 +17,11 @@ export const initDatabase = async () => {
         );`
     );
 
+    await executeSql(`
+        INSERT OR IGNORE INTO users (id, name, email)
+        VALUES (1, 'DefaultUser', 'default@example.com');
+    `);
+
     await executeSql(
         `CREATE TABLE IF NOT EXISTS posts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
